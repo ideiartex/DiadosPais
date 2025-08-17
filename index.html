@@ -57,7 +57,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, padding 0.3s ease-in-out;
         }
 
         header.header-hidden {
@@ -77,10 +77,14 @@
         }
 
         .logo {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            color: var(--cor-primaria);
             text-decoration: none;
+        }
+
+        .logo img {
+            height: 45px; /* Tamanho base para celular */
+            width: auto;
+            vertical-align: middle;
+            transition: height 0.3s ease-in-out;
         }
 
         .nav-links {
@@ -231,11 +235,11 @@
         #quadros .produto-card.is-visible:nth-child(even) { animation-name: fly-in-right; }
         
         #quadros .produto-card.is-visible:nth-child(1) { animation-delay: 0s; }
-        #quadros .produto-card.is-visible:nth-child(2) { animation-delay: 0.2s; }
-        #quadros .produto-card.is-visible:nth-child(3) { animation-delay: 0.4s; }
-        #quadros .produto-card.is-visible:nth-child(4) { animation-delay: 0.6s; }
-        #quadros .produto-card.is-visible:nth-child(5) { animation-delay: 0.8s; }
-        #quadros .produto-card.is-visible:nth-child(6) { animation-delay: 1s; }
+        #quadros .produto-card.is-visible:nth-child(2) { animation-delay: 0.1s; }
+        #quadros .produto-card.is-visible:nth-child(3) { animation-delay: 0.2s; }
+        #quadros .produto-card.is-visible:nth-child(4) { animation-delay: 0.3s; }
+        #quadros .produto-card.is-visible:nth-child(5) { animation-delay: 0.4s; }
+        #quadros .produto-card.is-visible:nth-child(6) { animation-delay: 0.5s; }
         
         /* --- SEÇÃO QUALIDADE --- */
         #qualidade { padding-bottom: 50px; }
@@ -349,7 +353,14 @@
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid var(--cor-texto); font-size: 0.9rem; color: #7f8c8d; }
         
         /* --- MEDIA QUERIES --- */
+        @media (min-width: 901px) {
+            .logo img {
+                height: 60px; /* Tamanho do logo para desktop */
+            }
+        }
+
         @media (max-width: 900px) { .nav-right-section { display: none; } .hamburger-menu { display: block; } .slide { flex: 0 0 50%; } }
+        
         @media (max-width: 820px) {
             
             #hero {
@@ -387,7 +398,7 @@
 
     <header>
         <div class="container navbar">
-            <a href="#" class="logo">Ideiartex</a>
+            <a href="#" class="logo"><img src="https://i.imgur.com/shyDzAb.png" alt="Logo Ideiartex"></a>
             <div class="nav-right-section">
                 <nav>
                     <ul class="nav-links">
@@ -429,20 +440,20 @@
             <div class="container">
                 <div class="section-title-container">
                     <h2 class="section-title animate-on-scroll">Qualidade em cada detalhe</h2>
-                    <p class="section-subtitle animate-on-scroll" style="transition-delay: 100ms;">Da escolha do material ao acabamento final, cada peça é criada com um único objetivo: a sua total satisfação.</p>
+                    <p class="section-subtitle animate-on-scroll" style="transition-delay: 50ms;">Da escolha do material ao acabamento final, cada peça é criada com um único objetivo: a sua total satisfação.</p>
                 </div>
                 <div class="qualidade-grid">
-                    <div class="qualidade-item animate-on-scroll" style="transition-delay: 200ms;">
+                    <div class="qualidade-item animate-on-scroll" style="transition-delay: 100ms;">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                         <h3>Durabilidade Superior</h3>
                         <p>Materiais premium que garantem cores vivas por muito mais tempo e resistência ao dia a dia.</p>
                     </div>
-                    <div class="qualidade-item animate-on-scroll" style="transition-delay: 300ms;">
+                    <div class="qualidade-item animate-on-scroll" style="transition-delay: 150ms;">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l.346.666L19.5 15.31l-2.002 3.824H6.502L4.5 15.31l7.154-11.954z"></path></svg>
                         <h3>Design Exclusivo</h3>
                         <p>Nossas coleções são criadas por artistas parceiros, garantindo originalidade e estilo.</p>
                     </div>
-                    <div class="qualidade-item animate-on-scroll" style="transition-delay: 400ms;">
+                    <div class="qualidade-item animate-on-scroll" style="transition-delay: 200ms;">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
                         <h3>Acabamento Impecável</h3>
                         <p>Corte preciso, molduras bem acabadas e atenção aos detalhes que fazem toda a diferença.</p>
@@ -455,7 +466,7 @@
             <div class="container">
                 <div class="section-title-container">
                      <h2 class="section-title animate-on-scroll">Quadros Personalizados</h2>
-                     <p class="section-subtitle animate-on-scroll" style="transition-delay: 100ms;">A peça central da sua decoração. Já vêm prontos para pendurar e transformar seu ambiente.</p>
+                     <p class="section-subtitle animate-on-scroll" style="transition-delay: 50ms;">A peça central da sua decoração. Já vêm prontos para pendurar e transformar seu ambiente.</p>
                 </div>
                 <div class="produtos-grid">
                      <div class="produto-card animate-on-scroll"><div class="img-container"><img src="https://i.imgur.com/wCLb7F4.jpg" alt="Coleção Abstrata Ouro e Branco"></div><div class="produto-content"><h3>Coleção Ouro & Branco</h3><p>A combinação perfeita de sofisticação e minimalismo. Peças que trazem um toque de luxo e modernidade para qualquer ambiente.</p></div></div>
@@ -465,14 +476,14 @@
                     <div class="produto-card animate-on-scroll"><div class="img-container"><img src="https://i.imgur.com/oCgF22a.jpg" alt="Quadros decorativos de vinhos para espaço gourmet"></div><div class="produto-content"><h3>Coleção Sommelier</h3><p>Para os apreciadores de um bom vinho. Uma coleção que celebra a cultura enogastronômica com elegância, ideal para sua adega ou bar.</p></div></div>
                     <div class="produto-card animate-on-scroll"><div class="img-container"><img src="https://i.imgur.com/tD1jZEY.jpg" alt="Quadro imponente de leão simbolizando força"></div><div class="produto-content"><h3>Coleção Força Selvagem</h3><p>Capture a majestade do rei da selva. Quadros imponentes que simbolizam poder e liderança, trazendo a beleza selvagem para seu lar.</p></div></div>
                 </div>
-                <div class="catalogo-cta-container animate-on-scroll" style="transition-delay: 1.2s;">
+                <div class="catalogo-cta-container animate-on-scroll" style="transition-delay: 0.6s;">
                     <svg class="cta-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
                     <h3>Quer ver ainda mais?</h3>
                     <p>Estas são apenas algumas de nossas coleções. Explore nosso catálogo completo para encontrar a arte perfeita para seu espaço.</p>
                     <a href="https://www.aicatalogo.com/" class="cta-button" target="_blank">Explore o Catálogo Completo</a>
                 </div>
                 
-                <div class="form-container animate-on-scroll" style="transition-delay: 1.4s;">
+                <div class="form-container animate-on-scroll" style="transition-delay: 0.7s;">
                     <h3>Solicite um Orçamento Personalizado</h3>
                     <form id="contato-quadros-form" action="https://api.web3forms.com/submit" method="POST">
 
@@ -508,9 +519,9 @@
             <div class="container">
                 <div class="section-title-container">
                     <h2 class="section-title animate-on-scroll">Veja Nossa Arte em Detalhe</h2>
-                    <p class="section-subtitle animate-on-scroll" style="transition-delay: 100ms;">Descubra o cuidado e a qualidade em cada peça, do design à finalização.</p>
+                    <p class="section-subtitle animate-on-scroll" style="transition-delay: 50ms;">Descubra o cuidado e a qualidade em cada peça, do design à finalização.</p>
                 </div>
-                <div class="video-wrapper animate-on-scroll" style="transition-delay: 200ms;">
+                <div class="video-wrapper animate-on-scroll" style="transition-delay: 100ms;">
                     <iframe src="https://www.youtube.com/embed/BiSMlpJ_Dzw?loop=1&playlist=BiSMlpJ_Dzw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
@@ -520,7 +531,7 @@
             <div class="container">
                  <div class="section-title-container">
                     <h2 class="section-title animate-on-scroll">Papel de Parede Personalizado</h2>
-                    <p class="section-subtitle animate-on-scroll" style="transition-delay: 100ms;">Renovação total sem sujeira. Aplicação fácil e rápida para um resultado impressionante.</p>
+                    <p class="section-subtitle animate-on-scroll" style="transition-delay: 50ms;">Renovação total sem sujeira. Aplicação fácil e rápida para um resultado impressionante.</p>
                 </div>
                 <div class="slider-container">
                     <div class="slider-wrapper">
@@ -535,7 +546,7 @@
                     <button class="slider-nav next" aria-label="Próximo">&#10095;</button>
                     <div class="slider-dots"></div>
                 </div>
-                 <div class="catalogo-button-container animate-on-scroll" style="transition-delay: 300ms;">
+                 <div class="catalogo-button-container animate-on-scroll" style="transition-delay: 150ms;">
                     <a href="https://api.whatsapp.com/send?phone=5541991002885&text=Olá!%20Vim%20pelo%20site%20da%20Ideiartex%20e%20gostaria%20de%20solicitar%20o%20catálogo%20de%20papéis%20de%20parede." class="cta-button" target="_blank">Solicite Nosso Catálogo Completo</a>
                 </div>
             </div>
@@ -545,10 +556,10 @@
             <div class="container">
                  <div class="section-title-container">
                     <h2 class="section-title animate-on-scroll">Painéis Decorativos</h2>
-                    <p class="section-subtitle animate-on-scroll" style="transition-delay: 100ms;">Crie divisórias e pontos de destaque com peças que são verdadeiras esculturas. Leves e fáceis de instalar.</p>
+                    <p class="section-subtitle animate-on-scroll" style="transition-delay: 50ms;">Crie divisórias e pontos de destaque com peças que são verdadeiras esculturas. Leves e fáceis de instalar.</p>
                 </div>
                 <div class="produtos-grid">
-                     <div class="produto-card animate-on-scroll" style="transition-delay: 200ms;">
+                     <div class="produto-card animate-on-scroll" style="transition-delay: 100ms;">
                         <div class="img-container"><img src="https://i.imgur.com/MIMLPdx.jpg" alt="Painel decorativo de parede vazado"></div>
                         <div class="produto-content">
                             <h3>Wall Decort 01</h3>
@@ -556,7 +567,7 @@
                             <a href="https://api.whatsapp.com/send?phone=5541991002885&text=Olá!%20Vim%20pelo%20site%20da%20Ideiartex%20e%20tenho%20interesse%20no%20painel%20Wall%20Decort%2001." class="cta-button" target="_blank">Eu Quero</a>
                         </div>
                     </div>
-                    <div class="produto-card animate-on-scroll" style="transition-delay: 300ms;">
+                    <div class="produto-card animate-on-scroll" style="transition-delay: 150ms;">
                         <div class="img-container"><img src="https://i.imgur.com/ebuZKRY.jpg" alt="Painel decorativo usado como cabeceira de cama"></div>
                         <div class="produto-content">
                             <h3>Wall Decort 02</h3>
@@ -564,7 +575,7 @@
                             <a href="https://api.whatsapp.com/send?phone=5541991002885&text=Olá!%20Vim%20pelo%20site%20da%20Ideiartex%20e%20tenho%20interesse%20no%20painel%20Wall%20Decort%2002." class="cta-button" target="_blank">Eu Quero</a>
                         </div>
                     </div>
-                    <div class="produto-card animate-on-scroll" style="transition-delay: 400ms;">
+                    <div class="produto-card animate-on-scroll" style="transition-delay: 200ms;">
                         <div class="img-container"><img src="https://i.imgur.com/xu5Gjor.jpg" alt="Painel de mandala decorativo para parede"></div>
                         <div class="produto-content">
                             <h3>Wall Decort 03</h3>
@@ -588,11 +599,11 @@
     <footer id="footer">
         <div class="container">
             <div class="footer-container">
-                <div class="footer-column animate-on-scroll" style="transition-delay: 100ms;">
+                <div class="footer-column animate-on-scroll" style="transition-delay: 50ms;">
                     <h3 class="logo">Ideiartex</h3>
                     <p>Criando arte para lares com personalidade. Qualidade e design que transformam ambientes.</p>
                 </div>
-                <div class="footer-column animate-on-scroll" style="transition-delay: 200ms;">
+                <div class="footer-column animate-on-scroll" style="transition-delay: 100ms;">
                     <h3>Navegue</h3>
                     <ul class="footer-links">
                         <li><a href="#quadros">Quadros</a></li>
@@ -601,7 +612,7 @@
                         <li><a href="#paineis-decorativos">Painéis Decorativos</a></li>
                     </ul>
                 </div>
-                <div class="footer-column animate-on-scroll" style="transition-delay: 300ms;">
+                <div class="footer-column animate-on-scroll" style="transition-delay: 150ms;">
                     <h3>Vamos Conversar?</h3>
                     <p>Tem uma ideia ou precisa de ajuda para escolher? Nossa equipe está pronta para atender você.</p>
                     <a href="https://api.whatsapp.com/send?phone=5541991002885&text=Olá!%20Vim%20pelo%20site%20da%20Ideiartex." class="cta-button" target="_blank">Fale Conosco Agora</a>
