@@ -370,10 +370,11 @@
                 padding: 10px 0;
             }
 
-            #hero {
-                background-attachment: scroll; /* Desativa parallax em celulares para performance */
+            #hero::before {
                 background-position: 50% 35%;
             }
+
+            /* REMOVIDA A LINHA QUE DESATIVAVA O PARALLAX */
 
             #contato-quadros-form button {
                 width: 100%;
