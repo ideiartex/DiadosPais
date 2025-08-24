@@ -171,7 +171,15 @@
         .mobile-cta {
             margin-top: 30px; padding: 12px 30px; background: var(--cor-acento); border-radius: 50px;
         }
-
+        
+        .close-menu-btn {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            font-size: 2.5rem;
+            color: var(--cor-branco);
+            text-decoration: none;
+        }
 
         /* --- SEÇÃO HERO --- */
         #hero {
@@ -370,11 +378,10 @@
                 padding: 10px 0;
             }
 
-            #hero::before {
+            #hero {
+                background-attachment: scroll;
                 background-position: 50% 35%;
             }
-
-            /* REMOVIDA A LINHA QUE DESATIVAVA O PARALLAX */
 
             #contato-quadros-form button {
                 width: 100%;
@@ -427,6 +434,7 @@
     </header>
 
     <div class="mobile-nav">
+        <a href="#" class="close-menu-btn" aria-label="Fechar Menu">&larr;</a>
         <a href="#quadros">Quadros</a>
         <a href="#video-destaque">Vídeo</a>
         <a href="#papel-de-parede">Papel de Parede</a>
@@ -565,7 +573,7 @@
             <div class="container">
                  <div class="section-title-container">
                     <h2 class="section-title animate-on-scroll">Painéis Decorativos</h2>
-                    <p class="section-subtitle animate-on-scroll" style="transition-delay: 50ms;">Crie divisórias e pontos de destaque com peças que são verdadeiras esculturas. Leves e fáceis de instalar.</p>
+                    <p class="section-subtitle animate-on-scroll" style="transition-delay: 50ms;">Transforme qualquer parede em uma obra de arte. Crie pontos de destaque com peças esculturais, leves e fáceis de instalar.</p>
                 </div>
                 <div class="produtos-grid">
                      <div class="produto-card animate-on-scroll" style="transition-delay: 100ms;">
@@ -580,7 +588,7 @@
                         <div class="img-container"><img src="https://i.imgur.com/ebuZKRY.jpg" alt="Painel decorativo usado como cabeceira de cama"></div>
                         <div class="produto-content">
                             <h3>Wall Decort 02</h3>
-                            <p>O ponto de partida para o quarto dos seus sonhos. Nossas cabeceiras em painel adicionam uma camada de textura e design, criando um ambiente de puro aconchego e estilo.</p>
+                            <p>Adicione um toque de modernidade e sofisticação com nossos painéis de estilo geométrico. Perfeitos para criar um ponto focal dinâmico e elegante em qualquer parede da sua casa.</p>
                             <a href="https://api.whatsapp.com/send?phone=5541991002885&text=Olá!%20Vim%20pelo%20site%20da%20Ideiartex%20e%20tenho%20interesse%20no%20painel%20Wall%20Decort%2002." class="cta-button" target="_blank">Eu Quero</a>
                         </div>
                     </div>
@@ -588,7 +596,7 @@
                         <div class="img-container"><img src="https://i.imgur.com/xu5Gjor.jpg" alt="Painel de mandala decorativo para parede"></div>
                         <div class="produto-content">
                             <h3>Wall Decort 03</h3>
-                            <p>Mais do que um objeto, um centro de energia. Nossas mandalas de parede são entalhadas com precisão para trazer harmonia, equilíbrio e uma beleza espiritual ao seu lar.</p>
+                            <p>Leve a delicadeza da natureza para seus ambientes com nossos painéis de inspiração floral. Seus detalhes orgânicos trazem vida e harmonia para qualquer parede.</p>
                             <a href="https://api.whatsapp.com/send?phone=5541991002885&text=Olá!%20Vim%20pelo%20site%20da%20Ideiartex%20e%20tenho%20interesse%20no%20painel%20Wall%20Decort%2003." class="cta-button" target="_blank">Eu Quero</a>
                         </div>
                     </div>
@@ -665,6 +673,12 @@
             const hamburger = document.querySelector('.hamburger-menu');
             const mobileNav = document.querySelector('.mobile-nav');
             const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            const closeMenuBtn = document.querySelector('.close-menu-btn');
+
+            function closeMobileMenu() {
+                hamburger.classList.remove('is-open');
+                mobileNav.classList.remove('is-open');
+            }
 
             if (hamburger && mobileNav) {
                 hamburger.addEventListener('click', () => {
@@ -674,10 +688,16 @@
 
                 mobileNavLinks.forEach(link => {
                     link.addEventListener('click', () => {
-                        hamburger.classList.remove('is-open');
-                        mobileNav.classList.remove('is-open');
+                        closeMobileMenu();
                     });
                 });
+
+                if (closeMenuBtn) {
+                    closeMenuBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        closeMobileMenu();
+                    });
+                }
             }
 
             // --- EFEITO DO CURSOR (APENAS DESKTOP) ---
